@@ -1,0 +1,51 @@
+/* ============================================================
+   设计系统 Design Tokens — 欠账记账
+   产品类型: 金融/工具 (单人移动端)  风格: 简约清晰 light mode
+   - 品牌主色: 翡翠绿 (财富/信任)
+   - 语义色: 欠账=红, 还款=绿
+   - 间距: 8px 节奏 (rpx: 1px≈2rpx)
+   - 触控: 最小 88rpx (44pt)
+   ============================================================ */
+
+/* 颜色 token */
+:root,
+page {
+  /* 品牌 */
+  --color-primary: #1FA67A;
+  --color-primary-dark: #178A65;
+  --color-primary-light: #E7F6F0;
+
+  /* 语义 */
+  --color-debt: #E5484D;        /* 欠账(应收) 红 */
+  --color-debt-bg: #FDECEC;
+  --color-repay: #1FA67A;       /* 还款 绿 */
+  --color-repay-bg: #E7F6F0;
+  --color-warning: #F5A524;
+
+  /* 中性 */
+  --color-bg: #F5F6F8;
+  --color-surface: #FFFFFF;
+  --color-text: #1A1D21;        /* 主文字 对白 >12:1 */
+  --color-text-secondary: #5B616E;  /* 次文字 >4.5:1 */
+  --color-text-tertiary: #8A8F99;   /* 辅助 */
+  --color-border: #ECEDF0;
+  --color-divider: #F0F1F3;
+
+  /* 圆角 */
+  --radius-sm: 12rpx;
+  --radius-md: 20rpx;
+  --radius-lg: 28rpx;
+  --radius-full: 9999rpx;
+
+  /* 阴影 (统一 elevation) */
+  --shadow-card: 0 2rpx 16rpx rgba(26, 29, 33, 0.06);
+  --shadow-float: 0 8rpx 32rpx rgba(31, 166, 122, 0.28);
+
+  /* 间距 (8px 节奏) */
+  --space-1: 8rpx;
+  --space-2: 16rpx;
+  --space-3: 24rpx;
+  --space-4: 32rpx;
+  --space-5: 48rpx;
+  --space-6: 64rpx;
+}

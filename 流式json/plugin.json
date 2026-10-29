@@ -1,0 +1,26 @@
+{
+  "name": "stream-json-viewer",
+  "pluginName": "流式 JSON 查看器",
+  "description": "输入 JSON 链接，流式获取并优雅展示 JSON 数据",
+  "author": "",
+  "homepage": "",
+  "version": "1.0.0",
+  "logo": "logo.png",
+  "main": "dist/index.html",
+  "features": [
+    {
+      "code": "stream-json",
+      "explain": "流式获取并展示 JSON 链接数据",
+      "cmds": [
+        "json",
+        "流式json",
+        "jsonviewer",
+        {
+          "type": "regex",
+          "label": "查看 JSON 链接",
+          "match": "/^https?:\\/\\/.+/i"
+        }
+      ]
+    }
+  ]
+}

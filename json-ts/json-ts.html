@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON → TypeScript 类型生成器</title>
+    <link rel="stylesheet" href="json-ts.css" />
+  </head>
+  <body>
+    <main class="tool-shell">
+      <header class="tool-header">
+        <div>
+          <p class="kicker">JSON TYPE FORGE</p>
+          <h1>JSON → TypeScript 类型生成器</h1>
+        </div>
+        <div class="header-actions">
+          <label class="name-field">
+            根类型名
+            <input id="rootName" type="text" value="Root" spellcheck="false" />
+          </label>
+          <label class="name-field">
+            类型名规范
+            <select id="typeNameStyle">
+              <option value="pascal">PascalCase</option>
+              <option value="camel">camelCase</option>
+              <option value="snake">snake_case</option>
+              <option value="preserve">保留输入</option>
+            </select>
+          </label>
+          <label class="name-field">
+            属性名规范
+            <select id="propertyNameStyle">
+              <option value="preserve">保留 JSON key</option>
+              <option value="camel">camelCase</option>
+              <option value="pascal">PascalCase</option>
+              <option value="snake">snake_case</option>
+            </select>
+          </label>
+          <label class="name-field">
+            输出形式
+            <select id="outputStyle">
+              <option value="interface">interface</option>
+              <option value="type">type 别名</option>
+            </select>
+          </label>
+          <label class="toggle-field">
+            <input type="checkbox" id="detectDates" checked />
+            <span>检测日期</span>
+          </label>
+          <label class="toggle-field">
+            <input type="checkbox" id="detectEnums" checked />
+            <span>检测枚举</span>
+          </label>
+          <label class="toggle-field">
+            <input type="checkbox" id="detectIndexSig" />
+            <span>索引签名</span>
+          </label>
+          <button id="sampleBtn" type="button">示例</button>
+          <button id="copyBtn" type="button">复制 TS</button>
+        </div>
+      </header>
+
+      <section class="workbench">
+        <section class="editor-panel">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">INPUT</p>
+              <h2>粘贴 JSON</h2>
+            </div>
+            <span id="inputStats">0 条样本</span>
+          </div>
+          <textarea
+            id="jsonInput"
+            spellcheck="false"
+            placeholder='支持单条 JSON、多条 JSON 连续粘贴，或 JSON 数组。例如：{"id":1,"name":"Ada"}'
+          ></textarea>
+          <div class="input-hints">
+            <span>多条对象会合并字段</span>
+            <span>同构对象复用类型</span>
+            <span>缺失字段生成可选属性</span>
+            <span>非法 key 自动加引号</span>
+          </div>
+        </section>
+
+        <section class="editor-panel output-panel">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">OUTPUT</p>
+              <h2>TypeScript</h2>
+            </div>
+            <div class="output-tabs">
+              <button class="tab-btn active" data-tab="ts" type="button">TS</button>
+              <button class="tab-btn" data-tab="schema" type="button">Schema</button>
+            </div>
+            <span id="statusText">等待输入</span>
+          </div>
+          <pre class="code-box"><code id="tsOutput"></code></pre>
+          <pre class="code-box schema-box" style="display:none"><code id="schemaOutput"></code></pre>
+        </section>
+      </section>
+
+      <section class="feature-grid" aria-label="生成能力">
+        <article>
+          <strong>基础类型判断</strong>
+          <span>string / number / boolean / null / unknown / Date</span>
+        </article>
+        <article>
+          <strong>数组结构合并</strong>
+          <span>对象结构不一致时合并字段，差异字段自动可选</span>
+        </article>
+        <article>
+          <strong>结构复用</strong>
+          <span>相同对象结构只生成一个声明，避免重复</span>
+        </article>
+        <article>
+          <strong>命名规范</strong>
+          <span>类型名和属性名可分别选择 Pascal / camel / snake / 原样</span>
+        </article>
+        <article>
+          <strong>枚举检测</strong>
+          <span>多个字符串字面量自动合并为 enum 声明</span>
+        </article>
+        <article>
+          <strong>日期识别</strong>
+          <span>ISO 8601 日期字符串自动推断为 Date 类型</span>
+        </article>
+        <article>
+          <strong>索引签名</strong>
+          <span>数字后缀键自动折叠为 [key: string] 索引签名</span>
+        </article>
+        <article>
+          <strong>JSON Schema</strong>
+          <span>一键切换输出 JSON Schema (draft 2020-12)</span>
+        </article>
+      </section>
+    </main>
+
+    <script src="json-ts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .5; }
+    }
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100vh); }
+    }
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 8px #00f0ff55, inset 0 0 8px #00f0ff22; }
+      50% { box-shadow: 0 0 16px #00f0ff88, inset 0 0 12px #00f0ff44; }
+    }
+    @keyframes border-dance {
+      0% { border-color: #00f0ff; }
+      33% { border-color: #ff00aa; }
+      66% { border-color: #7000ff; }
+      100% { border-color: #00f0ff; }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 220px;
+      font-family: 'Courier New', monospace;
+      background: #0a0a1a;
+      color: #c8d0e0;
+      position: relative;
+      overflow: hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 240, 255, .03) 2px,
+        rgba(0, 240, 255, .03) 4px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #00f0ff33;
+    }
+    .logo {
+      width: 8px;
+      height: 8px;
+      background: #00f0ff;
+      box-shadow: 0 0 6px #00f0ff, 0 0 12px #00f0ff66;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    h2 {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #00f0ff;
+      text-shadow: 0 0 8px #00f0ff66;
+    }
+    .controls {
+      font-size: 11px;
+      margin-bottom: 12px;
+      line-height: 2;
+      color: #8890a0;
+    }
+    .key {
+      display: inline-block;
+      min-width: 18px;
+      padding: 0 4px;
+      font-size: 10px;
+      text-align: center;
+      color: #0a0a1a;
+      background: #00f0ff;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+    .key.alt {
+      background: #ff00aa;
+      box-shadow: 0 0 6px #ff00aa66;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #00f0ff44;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: transparent;
+      color: #00f0ff;
+      transition: all .2s ease;
+      position: relative;
+    }
+    button:hover {
+      background: #00f0ff11;
+      border-color: #00f0ff;
+      animation: glow-pulse 1.5s ease-in-out infinite;
+    }
+    button:active {
+      transform: scale(.97);
+    }
+    button.active {
+      border-color: #ff00aa;
+      color: #ff00aa;
+      animation: border-dance 3s linear infinite;
+    }
+    button.active:hover {
+      background: #ff00aa11;
+      border-color: #ff00aa;
+      box-shadow: 0 0 12px #ff00aa44;
+    }
+    .status {
+      text-align: center;
+      font-size: 10px;
+      margin-top: 10px;
+      letter-spacing: 1px;
+      color: #556;
+      transition: color .3s ease;
+    }
+    .status.on {
+      color: #00f0ff;
+      text-shadow: 0 0 6px #00f0ff44;
+    }
+    .status-line {
+      width: 100%;
+      height: 1px;
+      margin-top: 10px;
+      background: linear-gradient(90deg, transparent, #00f0ff44, transparent);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logo { animation: none; }
+      button:hover { animation: none; }
+      button.active { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo"></div>
+      <h2>Stickman</h2>
+    </div>
+    <div class="controls">
+      <span class="key">&larr;</span> <span class="key">&rarr;</span> Move<br>
+      <span class="key">&uarr;</span> Jump &nbsp; <span class="key">&darr;</span> Drop<br>
+      <span class="key alt">Ctrl+Shift+S</span> Toggle
+    </div>
+    <button id="toggleBtn">BOOT SEQUENCE</button>
+    <div class="status" id="status">STANDBY</div>
+    <div class="status-line"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

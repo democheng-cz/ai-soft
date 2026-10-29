@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/components/jsonrow.tsx","./src/components/jsontree.tsx","./src/components/progressbar.tsx","./src/components/toast.tsx","./src/components/urlbar.tsx","./src/hooks/usestreamjson.ts","./src/hooks/usevirtuallist.ts","./src/utils/flatten.ts"],"version":"5.9.3"}

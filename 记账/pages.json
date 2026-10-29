@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "欠账记账",
+        "navigationBarBackgroundColor": "#1FA67A",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/record/record",
+      "style": {
+        "navigationBarTitleText": "记一笔",
+        "navigationBarBackgroundColor": "#1FA67A",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/customer/detail",
+      "style": {
+        "navigationBarTitleText": "客户明细",
+        "navigationBarBackgroundColor": "#1FA67A",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/customer/edit",
+      "style": {
+        "navigationBarTitleText": "客户信息",
+        "navigationBarBackgroundColor": "#1FA67A",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/stats/stats",
+      "style": {
+        "navigationBarTitleText": "统计",
+        "navigationBarBackgroundColor": "#1FA67A",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/settings/settings",
+      "style": {
+        "navigationBarTitleText": "设置",
+        "navigationBarBackgroundColor": "#1FA67A",
+        "navigationBarTextStyle": "white"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#8A8F99",
+    "selectedColor": "#1FA67A",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "fontSize": "12px",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/stats/stats",
+        "text": "统计"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "设置"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "欠账记账",
+    "navigationBarBackgroundColor": "#1FA67A",
+    "backgroundColor": "#F5F6F8"
+  }
+}

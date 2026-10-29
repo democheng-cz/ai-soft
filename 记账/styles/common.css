@@ -1,0 +1,119 @@
+@import './tokens.css';
+
+/* ========== 通用布局 ========== */
+.page-wrap {
+  min-height: 100vh;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 32rpx);
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0 24rpx;
+}
+
+/* ========== 卡片 ========== */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+/* ========== 文本工具 ========== */
+.text-primary { color: var(--color-text); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary { color: var(--color-text-tertiary); }
+.text-debt { color: var(--color-debt); }
+.text-repay { color: var(--color-repay); }
+
+.fw-bold { font-weight: 700; }
+.fw-medium { font-weight: 500; }
+
+/* 数字使用等宽对齐，防抖动 */
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ========== 金额展示 ========== */
+.amount {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  font-weight: 700;
+}
+
+/* ========== 按钮 ========== */
+.btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: var(--radius-md);
+  font-size: 32rpx;
+  font-weight: 600;
+  border: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.btn::after { border: none; }
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:active { opacity: 0.85; }
+
+.btn-ghost {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+.btn-ghost:active { opacity: 0.7; }
+
+.btn-danger {
+  background: var(--color-debt);
+  color: #fff;
+}
+.btn-danger:active { opacity: 0.85; }
+
+.btn-disabled {
+  opacity: 0.4;
+}
+
+/* ========== 标签 ========== */
+.tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: var(--radius-full);
+  font-size: 24rpx;
+  font-weight: 500;
+}
+.tag-debt { background: var(--color-debt-bg); color: var(--color-debt); }
+.tag-repay { background: var(--color-repay-bg); color: var(--color-repay); }
+
+/* ========== 空状态 ========== */
+.empty {
+  padding: 120rpx 48rpx;
+  text-align: center;
+}
+.empty-title {
+  font-size: 30rpx;
+  color: var(--color-text-secondary);
+  margin-bottom: 16rpx;
+}
+.empty-tip {
+  font-size: 26rpx;
+  color: var(--color-text-tertiary);
+}
+
+/* ========== 分割线 ========== */
+.divider {
+  height: 1rpx;
+  background: var(--color-divider);
+}
+
+/* ========== 列表项按压反馈 ========== */
+.pressable {
+  transition: background-color 0.15s ease;
+}
+.pressable:active {
+  background-color: var(--color-bg);
+}
